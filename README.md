@@ -1,4 +1,4 @@
-sification_AI
+# Carsification_AI
 A machine learning model for image classification of car parts
 
 ### Dataset

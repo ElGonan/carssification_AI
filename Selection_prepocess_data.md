@@ -73,3 +73,11 @@ The 40 labels i'll be working with are:
 - VALVE LIFTER
 - WATER PUMP
 
+### Model selection?
+According to the 2 indexed research papers on this repo, the best models for
+object detection are:
+1.- HTC
+2.- YOLACT
+3.- Mask R-CNN
+
+

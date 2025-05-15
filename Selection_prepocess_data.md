@@ -1,5 +1,5 @@
 Alan Patricio González Bernal
-A01067546
+<br/>A01067546
 
 ### Selection of the dataset
 There are many datasets out there but due to my limited knowledge on
@@ -76,9 +76,9 @@ The 40 labels i'll be working with are:
 ### Model selection?
 According to the 2 indexed research papers on this repo, the best models for
 object detection are:
-1.- HTC
-2.- YOLACT
-3.- Mask R-CNN
+<br/>1.- HTC
+<br/>2.- YOLACT
+<br/>3.- Mask R-CNN
 
 ### Preprocess
 I decided to follow the preprocess of images the same way we've been doing,

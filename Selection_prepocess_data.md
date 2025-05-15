@@ -32,7 +32,7 @@ The main structure is:
 - EfficientNetB2-40-(224 X 224)- 96.90.h5
 
 The 40 labels i'll be working with are:
-| Column 1           | Column 2          | Column 3         | Column 4          |
+|   |   |   |   |
 |--------------------|-------------------|------------------|-------------------|
 | AIR COMPRESSOR     | CYLINDER HEAD     | FUEL INJECTOR    | IDLER ARM         |
 | ALTERNATOR         | DISTRIBUTOIR      | FUSE BOX         | IGNITION COIL     |

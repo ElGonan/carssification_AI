@@ -80,4 +80,23 @@ object detection are:
 2.- YOLACT
 3.- Mask R-CNN
 
+### Preprocess
+I decided to follow the preprocess of images the same way we've been doing,
+that means normalize images from 0-255 to 0-1 and resize them to 150x150.
+Also I used the class_mode of "categorical", because I have multiple classes
+(40).
 
+
+### Notes:
+## ImageNet Normalization
+Turns out that the 3 models work better with an ImageNet Normalization,
+which isn't the same as the normalization 0-1, it's a bit more complex with
+the next values:
+
+mean = 0.485, 0.456, 0.406
+std = 0.229, 0.224, 0.225
+
+This allows the model to know better the color and texture of the images,
+therefore returning a better result. I have to consult this with Benji,
+however I think I'll try to do it the way I'm doing it rn and change if
+I need to.

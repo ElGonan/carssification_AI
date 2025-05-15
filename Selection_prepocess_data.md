@@ -94,7 +94,7 @@ which isn't the same as the normalization 0-1, it's a bit more complex with
 the next values:
 
 mean = 0.485, 0.456, 0.406
-std = 0.229, 0.224, 0.225
+ <br/> std = 0.229, 0.224, 0.225
 
 This allows the model to know better the color and texture of the images,
 therefore returning a better result. I have to consult this with Benji,

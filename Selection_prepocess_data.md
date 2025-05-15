@@ -1,3 +1,4 @@
+
 Alan Patricio González Bernal
 <br/>A01067546
 
@@ -31,47 +32,23 @@ The main structure is:
 - EfficientNetB2-40-(224 X 224)- 96.90.h5
 
 The 40 labels i'll be working with are:
-- AIR COMPRESSOR
-- ALTERNATOR
-- BATTERY
-- BRAKE CALIPER
-- BRAKE PAD
-- BRAKE ROTOR
-- CAMSHAFT
-- CARBERATOR
-- COIL SPRING
-- CRANKSHAFT
-- CYLINDER HEAD
-- DISTRIBUTOIR
-- ENGINE BLOCK
-- FUEL INJECTOR
-- FUSE BOX
-- GAS CAP
-- CALIPER
-- HEADLIGHTS
-- IDLER ARM
-- IGNITION COIL
-- LEAF SPRING
-- LOWER CONTROL ARM
-- MUFFLER
-- OIL FILTER
-- OIL PAN
-- OVERFLOW TANK
-- OXYGEN SENSOR
-- PISTON
-- RADIATOR
-- RADIATOR FAN
-- RADIATOR HOSE
-- RIM
-- SPARK PLUG
-- STARTER
-- TAILLIGHTS
-- THERMOSTAT
-- TORQUE CONVERTER
-- TRANSMISSION
-- VACUUM BRAKE BOOSTER
-- VALVE LIFTER
-- WATER PUMP
+| Column 1           | Column 2          | Column 3         | Column 4          |
+|--------------------|-------------------|------------------|-------------------|
+| AIR COMPRESSOR     | CYLINDER HEAD     | FUEL INJECTOR    | IDLER ARM         |
+| ALTERNATOR         | DISTRIBUTOIR      | FUSE BOX         | IGNITION COIL     |
+| BATTERY            | ENGINE BLOCK      | GAS CAP          | LEAF SPRING       |
+| BRAKE CALIPER      | HEADLIGHTS        | LOWER CONTROL ARM| MUFFLER           |
+| BRAKE PAD          | IGNITION COIL     | MUFFLER          | OIL FILTER        |
+| BRAKE ROTOR        | IDLER ARM         | OIL FILTER       | OIL PAN           |
+| CAMSHAFT           | LEAF SPRING       | OIL PAN          | OVERFLOW TANK     |
+| CARBERATOR         | LOWER CONTROL ARM | OVERFLOW TANK    | OXYGEN SENSOR     |
+| COIL SPRING        | MUFFLER           | OXYGEN SENSOR    | PISTON            |
+| CRANKSHAFT         | OIL FILTER        | PISTON           | RADIATOR          |
+| RADIATOR FAN       | RADIATOR HOSE     | RIM              | SPARK PLUG        |
+| STARTER            | TAILLIGHTS        | THERMOSTAT       | TORQUE CONVERTER  |
+| TRANSMISSION       | VACUUM BRAKE BOOSTER | VALVE LIFTER  | WATER PUMP        |
+
+
 
 ### Model selection?
 According to the 2 indexed research papers on this repo, the best models for

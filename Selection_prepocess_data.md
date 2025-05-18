@@ -48,14 +48,16 @@ The 40 labels i'll be working with are:
 | STARTER            | TAILLIGHTS        | THERMOSTAT       | TORQUE CONVERTER  |
 | TRANSMISSION       | VACUUM BRAKE BOOSTER | VALVE LIFTER  | WATER PUMP        |
 
-
+### Augmentation
+The dataset already has a lot of instances for each label and is already
+separated, so I decided I don't need to do augmentation to it.
 
 ### Model selection?
 According to the 2 indexed research papers on this repo, the best models for
 object detection are:
-<br/>1.- HTC
-<br/>2.- YOLACT
-<br/>3.- Mask R-CNN
+<br/>1. HTC
+<br/>2. YOLACT
+<br/>3. Mask R-CNN
 
 ### Preprocess
 I decided to follow the preprocess of images the same way we've been doing,
@@ -77,3 +79,9 @@ This allows the model to know better the color and texture of the images,
 therefore returning a better result. I have to consult this with Benji,
 however I think I'll try to do it the way I'm doing it rn and change if
 I need to.
+
+# References
+1. A. Aldawsari, S. A. Yusuf, R. Souissi, and M. AL-Qurishi, "Real-Time Instance Segmentation Models for Identification of Vehicle Parts," Research Article, Elm Company, Riyadh, Saudi Arabia, Apr. 11, 2023. [Online]. Available: https://doi.org/10.1155/2023/6460639 
+
+2. K. Pasupa, P. Kittiworapanya, N. Hongngern, and K. Woraratpanya, "Evaluation of deep learning algorithms for semantic segmentation of car parts," Complex & Intelligent Systems, vol. 8, pp. 3613–3625, May 2021. [Online]. Available: https://doi.org/10.1007/s40747-021-00397-8
+

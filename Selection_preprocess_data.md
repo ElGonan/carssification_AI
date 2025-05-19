@@ -2,7 +2,7 @@
 Alan Patricio González Bernal
 <br/>A01067546
 
-### Selection of the dataset
+## Selection of the dataset
 There are many datasets out there but due to my limited knowledge on
 AI, I decided to stick my machine learning model to be similar to the ones
 we do on class. Checking different repositories of datasets, I encountered
@@ -52,22 +52,25 @@ The 40 labels i'll be working with are:
 The dataset already has a lot of instances for each label and is already
 separated, so I decided I don't need to do augmentation to it.
 
+## Preprocess
+I decided to follow the preprocess of images the same way we've been doing,
+that means normalize images (scale them) from 0-255 to 0-1 and resize them to 
+150x150. Also I used the class_mode of "categorical", because I have multiple 
+classes (40).
+
+The [carssification_AI.ipynb](./carssification_AI.ipynb) file contains the code
+of the preprocess.
+
+## Notes:
+
 ### Model selection?
-According to the 2 indexed research papers on this repo, the best models for
-object detection are:
+According to the 2 indexed research papers on this repo (and also referenced at the end
+of this file), the best models for object detection are:
 <br/>1. HTC
 <br/>2. YOLACT
 <br/>3. Mask R-CNN
 
-### Preprocess
-I decided to follow the preprocess of images the same way we've been doing,
-that means normalize images from 0-255 to 0-1 and resize them to 150x150.
-Also I used the class_mode of "categorical", because I have multiple classes
-(40).
-
-
-### Notes:
-## ImageNet Normalization
+### ImageNet Normalization
 Turns out that the 3 models work better with an ImageNet Normalization,
 which isn't the same as the normalization 0-1, it's a bit more complex with
 the next values:

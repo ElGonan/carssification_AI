@@ -77,18 +77,18 @@ the end of this file[1] [2]), the best models for object detection are:
 <br/>3. Mask R-CNN
 
 ### ImageNet Normalization
-Both papers [1] [2] mention that the models where trained with ResNet as a backbone. After  ImageNet Normalization,
-which isn't the same as the normalization 0-1, it's a bit more complex with
-the next values:
+Both papers [1] [2] mention that the models where trained with ResNet as a 
+backbone. Which isn't the same as the normalization 0-1, it's a bit more complex 
+with the next values:
 
 mean = 0.485, 0.456, 0.406
  <br/> std = 0.229, 0.224, 0.225
  [3]
 
-This allows the model to know better the color and texture of the images,
-therefore returning a better result. I have to consult this with Benji,
-however I think I'll try to do it the way I'm doing it rn and change if
-I need to.
+This allows the input images to have the same distribution as the data the model 
+was originally trained on, which helps maintain the expected performance of the 
+pretrained model [3]. I have to consult this with Benji, however I think I'll 
+try to do it the way I'm doing it rn and change if I need to.
 
 # References
 1. A. Aldawsari, S. A. Yusuf, R. Souissi, and M. AL-Qurishi, "Real-Time Instance Segmentation Models for Identification of Vehicle Parts," Research Article, Elm Company, Riyadh, Saudi Arabia, Apr. 11, 2023. [Online]. Available: https://doi.org/10.1155/2023/6460639 

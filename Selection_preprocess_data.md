@@ -56,7 +56,7 @@ separated, so I decided I don't need to do augmentation to it.
 
 ## Preprocess
 
-### Escalation
+### Scalation
 I decided to follow the preprocess of images the same way we've been doing, 
 that means normalize images (scale them) from 0-255 to 0-1.
 

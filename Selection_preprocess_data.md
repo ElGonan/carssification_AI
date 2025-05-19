@@ -3,6 +3,8 @@ Alan Patricio González Bernal
 <br/>A01067546
 
 ## Selection of the dataset
+
+### Introduction
 There are many datasets out there but due to my limited knowledge on
 AI, I decided to stick my machine learning model to be similar to the ones
 we do on class. Checking different repositories of datasets, I encountered
@@ -53,19 +55,20 @@ The dataset already has a lot of instances for each label and is already
 separated, so I decided I don't need to do augmentation to it.
 
 ## Preprocess
+
 ### Escalation
 I decided to follow the preprocess of images the same way we've been doing, 
 that means normalize images (scale them) from 0-255 to 0-1.
 
 ### Preprocess
 I decided to resize them to 150x150 so I can visualize them
-coorectly and to ensure all images have the same size. Also I used the 
+correctly and to ensure all images have the same size. Also I used the 
 class_mode of "categorical", because I have multiple classes (40). The batch size 
 will be the same as the one we used on classes (8) because it's one of the most 
 common batch sizes. 
 
 The [carssification_AI.ipynb](./carssification_AI.ipynb) file contains the code
-of the preprocess.
+of the whole preprocess.
 
 ## Notes:
 
@@ -76,10 +79,10 @@ the end of this file[1] [2]), the best models for object detection are:
 <br/>2. YOLACT
 <br/>3. Mask R-CNN
 
-### ImageNet Normalization
+### ResNet Normalization
 Both papers [1] [2] mention that the models where trained with ResNet as a 
-backbone. Which isn't the same as the normalization 0-1, it's a bit more complex 
-with the next values:
+backbone. Which doesn't have the same as the normalization 0-1, it's a bit 
+more complex with the next values:
 
 mean = 0.485, 0.456, 0.406
  <br/> std = 0.229, 0.224, 0.225

@@ -51,8 +51,19 @@ The 40 labels i'll be working with are:
 | TRANSMISSION       | VACUUM BRAKE BOOSTER | VALVE LIFTER  | WATER PUMP        |
 
 ### Augmentation
-The dataset already has a lot of instances for each label and is already
-separated, so I decided I don't need to do augmentation to it.
+The dataset has for each label:
+- train
+    - 170-200 instances
+- test
+    - 5 instances
+- validation
+    - 5 instances
+
+So I will do data augmentation to increase my dataset, specially on the test and
+valdiation parts.
+
+ // TO DO:
+ Augmentate dataset and explain how many new instances I have.
 
 ## Preprocess
 
@@ -70,7 +81,16 @@ common batch sizes.
 The [carssification_AI.ipynb](./carssification_AI.ipynb) file contains the code
 of the whole preprocess.
 
-## Notes:
+# Notes:
+
+## 21/05/2025
+After the first evaluation, Benji and Peblo allowed me to notice my gigantic
+mistake: I confused terms and did object detection investigation but I need
+<b>Image Classification</b> investigation. So I will re-investigate the models
+to find one that fits. However Benji told me that ResNet is maybe the best
+choice so I need to investigate that. It's my starting point.
+
+## First Notes
 
 ### Model selection?
 According to the 2 indexed research papers on this repo (and also referenced at 
@@ -92,6 +112,7 @@ This allows the input images to have the same distribution as the data the model
 was originally trained on, which helps maintain the expected performance of the 
 pretrained model [3]. I have to consult this with Benji, however I think I'll 
 try to do it the way I'm doing it rn and change if I need to.
+
 
 # References
 1. A. Aldawsari, S. A. Yusuf, R. Souissi, and M. AL-Qurishi, "Real-Time Instance Segmentation Models for Identification of Vehicle Parts," Research Article, Elm Company, Riyadh, Saudi Arabia, Apr. 11, 2023. [Online]. Available: https://doi.org/10.1155/2023/6460639 

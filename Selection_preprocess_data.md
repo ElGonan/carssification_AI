@@ -146,6 +146,16 @@ pretrained model [3]. I have to consult this with Benji, however I think I'll
 try to do it the way I'm doing it rn and change if I need to.
 
 
+
+
+# Función de loss: en mismo formato para hacer categorical. En vez de usar categorical sparse crossentropy
+#                                 ||
+# Deben estar configurados acorde vv
+# 1.- Configuraciñon del generator, 2.- Cantidad de neuronas de salidad de la red, 4.- la función de perddida (loss)
+
+
+
+
 # References
 1. A. Aldawsari, S. A. Yusuf, R. Souissi, and M. AL-Qurishi, "Real-Time Instance Segmentation Models for Identification of Vehicle Parts," Research Article, Elm Company, Riyadh, Saudi Arabia, Apr. 11, 2023. [Online]. Available: https://doi.org/10.1155/2023/6460639 
 

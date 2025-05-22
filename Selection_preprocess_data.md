@@ -78,6 +78,26 @@ class_mode of "categorical", because I have multiple classes (40). The batch siz
 will be the same as the one we used on classes (8) because it's one of the most 
 common batch sizes. 
 
+# Model Implementation and initial evaluation
+
+## Model
+As my pre-trained model I'll be using ResNet50, Many research papers[1][2][4] use it and
+comparing it is one of the best, with the next metrics:
+- Accuracy
+    - 0.85
+- Precision
+    - 0.81
+- Recall
+    - 0.88
+- F-Score
+    - 0.85
+[4]
+
+And also ResNet is used as backbone for Object Detection[1][2] so if everything goes
+smooth (as I expect it to go) I can increase the scope of the project to implement
+Object Detection.
+
+
 The [carssification_AI.ipynb](./carssification_AI.ipynb) file contains the code
 of the whole preprocess.
 
@@ -89,6 +109,18 @@ mistake: I confused terms and did object detection investigation but I need
 <b>Image Classification</b> investigation. So I will re-investigate the models
 to find one that fits. However Benji told me that ResNet is maybe the best
 choice so I need to investigate that. It's my starting point.
+
+### Model Selection!
+As investigated before, ResNet50 is going to be very useful, on the paper[4]
+they compare 3 models:
+<br/>1. Xception
+<br/>2. VGG16
+<br/>3. ResNet50
+
+and the one that had the best Accuracy was ResNet50. So I'll start using that
+model.
+
+
 
 ## First Notes
 
@@ -121,3 +153,4 @@ try to do it the way I'm doing it rn and change if I need to.
 
 3. PyTorch, “torchvision.transforms — Torchvision 0.16 documentation,” PyTorch.org, [Online]. Available: https://docs.pytorch.org/vision/stable/transforms.html.
 
+4. S. Bechelli and J. Delhommelle, "Machine learning and deep learning algorithms for skin cancer classification from dermoscopic images," Bioengineering, vol. 9, no. 3, p. 97, Feb. 2022. [Online]. Available: https://doi.org/10.3390/bioengineering9030097

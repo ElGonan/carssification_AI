@@ -123,8 +123,6 @@ It's important to mention that the custom model was trained with 2 classes
 and not 40, so I expect the accuracy to be lower than the paper announced.
 
 However, I list the custom model metrics:
-- Accuracy
-    - 0.84
 - Precision
     - 0.94
 - Recall
@@ -180,14 +178,24 @@ According to the papers, My metrics will be:
 - F-Score (or F1)
 
 ## First Results
-The model was trained for 15 epochs, with a batch size of 8.
+The model was trained for 25 epochs, with a batch size of 8.
 The model was trained with the Adam optimizer and the loss function
 was categorical crossentropy.
 
 The model gave the following results:
 - Precision
+    - 0.0163
 - Recall
+    - 0.0200
 - F-Score (or F1)
+    - 0.0170
+
+<b>This tells me that the model is not performing well, it's basically
+not learning anything. I suspect that GlobalAveragePooling2D instead
+of Flatten may be the problem. It may be shrinking the data too much
+and not allowing the model to learn properly. I will try to change it
+to Flatten and see if it improves.</b>
+
 
 The [carssification_AI.ipynb](./carssification_AI.ipynb) file contains the code
 of the whole preprocess.

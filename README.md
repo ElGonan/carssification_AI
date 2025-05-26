@@ -206,7 +206,7 @@ of the parameters indicate otherwise.
 ## Modifications
 As stated on the notes, I improved my model and now looks like this:
 
-On the ImageGenerators, I changed the resize to the one needed[7]
+On the ImageGenerators, I changed the resize to the one needed for ResNet[7]
 
 - ResNet50 [3]
     - input_shape=(254, 254, 3)
@@ -232,15 +232,20 @@ expects images from 224x224
 with this new modifications, in only 5 epochs the model reaches:
 
 - Precision
-    - 0.8949
+    - 0.8977
 - Recall
-    - 0.8750
+    - 0.8650
 - F-Score (or F1)
-    - 0.8728
+    - 0.8645
+
+## Conclusion
+The model is now performing much better than before, the precision, recall and F-Score are much better than before. The model is now able to detect the car parts and I have achieved the almost equal the State of the Art[4] with only 5 epochs. I'll try other day with the ammount of epochs the paper[4] used and then compare them correctly.
+
+Now, before finishing this project. I still have to test with the test dataset and see how it performs.
 
 
-The [carssification_AI.ipynb](./carssification_AI.ipynb) file contains the code
-of the whole preprocess.
+
+The [carssification_AI.ipynb](./carssification_AI.ipynb) file contains the code.
 
 # Notes:
 ## 25/05/2025

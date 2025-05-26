@@ -191,16 +191,39 @@ The model gave the following results:
     - 0.0170
 
 <b>This tells me that the model is not performing well, it's basically
-not learning anything. I suspect that GlobalAveragePooling2D instead
-of Flatten may be the problem. It may be shrinking the data too much
-and not allowing the model to learn properly. I will try to change it
-to Flatten and see if it improves.</b>
+not learning anything. This can be because of what I meantioned about
+the normalization. It's not the way the ResNet50 expects it to be
+so it may not be able to detect anything.</b>
 
+I also added the plots of accuracy and loss to be able to know if my model 
+is overfitting, fitting :) or underfitting.
+
+By now, my conclussion is that the model is <b>fitting :)</b>. However the rest
+of the parameters indicate otherwise.
 
 The [carssification_AI.ipynb](./carssification_AI.ipynb) file contains the code
 of the whole preprocess.
 
 # Notes:
+## 25/05/2025
+
+### Improved model
+Eureka! I managed to improve the model basically by doing the things the
+way they are supposed to be done. The first issue was the Normalization, the
+0-1 normalization, as mentioned, needs to be different. And keras has an import
+that makes the calculation for me called "preprocess input". After that, instead
+of using Flatten on the model, I decided to use GlobalAveragePooling, which
+instead of flattening in 3 channels, makes an average to only 1 channel. This
+is better because ImageNet works this way.
+
+with this new modifications, in only 5 epochs the model reaches:
+
+- Precision
+    - 0.8949
+- Recall
+    - 0.8750
+- F-Score (or F1)
+    - 0.8728
 
 ## 24/05/2025
 

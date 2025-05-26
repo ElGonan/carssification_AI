@@ -206,6 +206,8 @@ of the parameters indicate otherwise.
 ## Modifications
 As stated on the notes, I improved my model and now looks like this:
 
+On the ImageGenerators, I changed the resize to the one needed[7]
+
 - ResNet50 [3]
     - input_shape=(254, 254, 3)
     - include_top=False
@@ -247,7 +249,7 @@ of the whole preprocess.
 Eureka! I managed to improve the model basically by doing the things the
 way they are supposed to be done. The first issue was the Normalization, the
 0-1 normalization, as mentioned, needs to be different. And keras has an import
-that makes the calculation for me called "preprocess input". After that, instead
+that makes the calculation for me called "preprocess input"[7]. After that, instead
 of using Flatten on the model, I decided to use GlobalAveragePooling, which
 instead of flattening in 3 channels, makes an average to only 1 channel. This
 is better because its easier on the processor or GPU and it's still pretty
@@ -344,3 +346,4 @@ https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes
 6. M. Pektaş, "Performance Analysis of Efficient Deep Learning Models for Multi-Label Classification of Fundus Image," Artificial Intelligence Theory and Applications, vol. [Online]. Available: 
 https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com
 
+7. TensorFlow. (2024). tf.keras.applications.resnet.preprocess_input. [Online]. Available: https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet/preprocess_input

@@ -203,6 +203,7 @@ of the parameters indicate otherwise.
 
 
 # Improvements
+## Modifications
 As stated on the notes, I improved my model and now looks like this:
 
 - ResNet50 [3]
@@ -224,6 +225,16 @@ As stated on the notes, I improved my model and now looks like this:
 
 I also modified the image resize to maintain the sizes it should since ResNet50
 expects images from 224x224 
+
+## New Results
+with this new modifications, in only 5 epochs the model reaches:
+
+- Precision
+    - 0.8949
+- Recall
+    - 0.8750
+- F-Score (or F1)
+    - 0.8728
 
 
 The [carssification_AI.ipynb](./carssification_AI.ipynb) file contains the code

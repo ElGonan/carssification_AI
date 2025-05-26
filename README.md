@@ -206,8 +206,6 @@ of the parameters indicate otherwise.
 ## Modifications
 As stated on the notes, I improved my model and now looks like this:
 
-On the ImageGenerators, I changed the resize to the one needed for ResNet[7]
-
 - ResNet50 [3]
     - input_shape=(254, 254, 3)
     - include_top=False
@@ -226,7 +224,7 @@ On the ImageGenerators, I changed the resize to the one needed for ResNet[7]
     - softmax
 
 I also modified the image resize to maintain the sizes it should since ResNet50
-expects images from 224x224 
+expects images from 224x224 or greater.
 
 ## New Results
 with this new modifications, in only 5 epochs the model reaches:
@@ -239,11 +237,9 @@ with this new modifications, in only 5 epochs the model reaches:
     - 0.8645
 
 ## Conclusion
-The model is now performing much better than before, the precision, recall and F-Score are much better than before. The model is now able to detect the car parts and I have achieved the almost equal the State of the Art[4] with only 5 epochs. I'll try other day with the ammount of epochs the paper[4] used and then compare them correctly.
+The model is now performing much better than before, the precision, recall and F-Score are much better. The model is now able to detect the car parts and I have achieved the almost equal the State of the Art[4] with only 5 epochs. I'll try other day with the ammount of epochs the paper[4] used and then compare them correctly.
 
-Now, before finishing this project. I still have to test with the test dataset and see how it performs.
-
-
+Also I have a Kaggle notebook[8] with an accuracy of 99.08 with this dataset. That´s my new objective.
 
 The [carssification_AI.ipynb](./carssification_AI.ipynb) file contains the code.
 
@@ -352,3 +348,5 @@ https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes
 https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com
 
 7. TensorFlow. (2024). tf.keras.applications.resnet.preprocess_input. [Online]. Available: https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet/preprocess_input
+
+8. V. K. Mahto, "Transfer Learning using MobileNetV2 (acc=99.08%)," Kaggle. [Online]. Available: https://www.kaggle.com/code/vaibhavkumarmahto/transfer-learning-using-mobilenetv2-acc-99-08#Draw-Learning-Curve. [Accessed: May 25, 2025].

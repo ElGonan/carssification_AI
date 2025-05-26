@@ -154,21 +154,21 @@ The compilation of the model is the same as used on classes:
 - Optimizer
     - Adam
 - Loss function
-    - categorical_crossentropy*
+    - categorical_crossentropy[*]
 - Metrics
     - accuracy
 
-* As Benji mentioned in the first retro, the loss function that I should be using
+[*] As Benji mentioned in the first retro, the loss function that I should be using
 is categorical_crossentropy. This is because I have multiple classes
 and not binary classification. So I will be using that one.
 
 ## Training
 For the training, I will be implementing checkpoints to save the
-model every 5 epochs. I decided to have 15 epochs just to see what
+model every 5 epochs. I decided to have 25 epochs just to see what
 we get.
 
 ## Evaluation
-The model was trained for 15 epochs, with a batch size of 8. 
+The model was trained for 25 epochs, with a batch size of 8. 
 The model was trained with the Adam optimizer and the loss function
 was categorical crossentropy.
 
@@ -201,6 +201,31 @@ is overfitting, fitting :) or underfitting.
 By now, my conclussion is that the model is <b>fitting :)</b>. However the rest
 of the parameters indicate otherwise.
 
+
+# Improvements
+As stated on the notes, I improved my model and now looks like this:
+
+- ResNet50 [3]
+    - input_shape=(254, 254, 3)
+    - include_top=False
+    - weights="imagenet"
+    - classifier_activation="softmax"
+    - name="resnet50"
+- GlobalAveragePooling2D
+- Dense
+    - 512
+    - relu
+- Dense
+    - 128
+    - relu
+- Dense
+    - 40
+    - softmax
+
+I also modified the image resize to maintain the sizes it should since ResNet50
+expects images from 224x224 
+
+
 The [carssification_AI.ipynb](./carssification_AI.ipynb) file contains the code
 of the whole preprocess.
 
@@ -214,7 +239,8 @@ way they are supposed to be done. The first issue was the Normalization, the
 that makes the calculation for me called "preprocess input". After that, instead
 of using Flatten on the model, I decided to use GlobalAveragePooling, which
 instead of flattening in 3 channels, makes an average to only 1 channel. This
-is better because ImageNet works this way.
+is better because its easier on the processor or GPU and it's still pretty
+efficient.
 
 with this new modifications, in only 5 epochs the model reaches:
 

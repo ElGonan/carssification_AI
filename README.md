@@ -206,6 +206,10 @@ of the parameters indicate otherwise.
 ## Modifications
 As stated on the notes, I improved my model and now looks like this:
 
+The preprocessing of the image is now as ResNet expects, using a library
+import called preprocess_input. Which basically inverts the RGB channels
+to BGR, and also modifies each channel to a specific normalization.
+
 - ResNet50 [3]
     - input_shape=(254, 254, 3)
     - include_top=False
@@ -240,6 +244,49 @@ with this new modifications, in only 5 epochs the model reaches:
 The model is now performing much better than before, the precision, recall and F-Score are much better. The model is now able to detect the car parts and I have achieved the almost equal the State of the Art[4] with only 5 epochs. I'll try other day with the ammount of epochs the paper[4] used and then compare them correctly.
 
 Also I have a Kaggle notebook[8] with an accuracy of 99.08 with this dataset. That´s my new objective.
+
+## Modifications
+My model can be improved, and I did a few modifications to avoid Overfitting
+and improve the overall results.
+
+- ResNet50 [3]
+    - input_shape=(254, 254, 3)
+    - include_top=False
+    - weights="imagenet"
+    - classifier_activation="softmax"
+    - name="resnet50"
+- GlobalAveragePooling2D
+- Dense
+    - 512
+    - relu
+- Dense
+    - 256
+    - relu
+- Dropout
+    - 0.3
+- Dense
+    - 128
+    - relu
+- Dense
+    - 40
+    - softmax
+
+After the first results I noticed that my model was not behaving as expected,
+loosing details of the image and reducing accuracy. Now with the new upgrades
+I expect a better learning with the scalated reduction of neurons up to my last
+Dense layer, and the dropout to avoid overfitting which I noticed. I tried
+Dropout on several layers and un the middle of my own layers is where I reached
+my best results.
+
+Now, the model has:
+90.5% accuracy
+
+It's better now, but it can be better.
+
+Another modification was the batch size. On the paper[6] they mention that the
+best results were achieved with 16 batch size, so I decided to use it now and
+keep it that way, I don't notice much changes in behaviour or resources so
+I'll leave it like that
 
 The [carssification_AI.ipynb](./carssification_AI.ipynb) file contains the code.
 

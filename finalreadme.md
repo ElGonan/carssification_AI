@@ -62,14 +62,14 @@ and the labels are as follows:
 Each class contains a variety of images and are divided into training, validation, and test sets, distributed as follows:
 
 ![Figure 1. Dataset Distribution (Train)](./images/numinstancestrain.png)
-<p align="center">Figure 1. Dataset Distribution (Train)</p>
+<p align="center"><em>Figure 1. Dataset Distribution (Train)</em></p>
 
 ![Figure 2. Dataset Distribution (Validation)](./images/numinstancesvalid.png)
-<p align="center">Figure 2. Dataset Distribution (Validation)</p>
+<p align="center"><em>igure 2. Dataset Distribution (Validation)</em></p>
 
 
 ![Figure 3. Dataset Distribution (Test)](./images/numinstancestest.png)
-<p align="center">Figure 3. Dataset Distribution (Test)</p>
+<p align="center"><em>Figure 3. Dataset Distribution (Test</em>)</p>
 
 
 

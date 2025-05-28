@@ -4,7 +4,21 @@
 **A01067546**
 
 ## Abstract
-This paper presents a machine learning model designed for the classification of images of car parts. Utilizing a dataset obtained from Kaggle, an approach based on the ResNet50 architecture was implemented along with a custom-model, which has proven effective in image classification tasks. Through a data preprocessing and augmentation process, the model's quality was enhanced, achieving significant metrics in precision, recall, and F-Score. The results indicate that the model can detect car parts with a high degree of accuracy, approaching state-of-the-art standards in image classification.
+Car parts classification is relevant for automation in dealership, salvage, and
+workshop processes. A tool like this can enhance workflows in these fields. 
+This project consists of a Deep Learning (DL) model connected to a custom 
+Convolutional Neural Network (CNN). The complete model achieves accuracies of 
+up to 90.5%, with a precision of 89.4%, a recall of 87.5%, and an F-Score of 87.2%.
+
+The pretrained DL model used is ResNet50, which is a CNN that integrates 
+residual connections from previous layers, allowing for improved model 
+performance by facilitating the flow of information. Additionally, techniques 
+such as dense layers and dropout are implemented to optimize learning and 
+prevent overfitting. This comprehensive approach enables more accurate and 
+efficient classification of car parts, thus contributing to automation in the 
+industry.
+
+Keywords: image classification, ResNet50, car parts, convolutional neural network
 
 ## Introduction
 Image classification is a continuously evolving field within artificial intelligence, with applications ranging from object identification to image segmentation. This study focuses on the classification of car parts, an area that has received limited attention compared to other image classification applications. The choice of dataset was influenced by the search for a practical project that could be tackled with limited knowledge in artificial intelligence.

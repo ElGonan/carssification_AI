@@ -43,7 +43,7 @@ Each class contains a variety of images and are divided into training, validatio
 ![Figure 1. Dataset Distribution (Train)](./images/numinstancestrain.png)
 <p align="center">Figure 1. Dataset Distribution (Train)</p>
 
-![Figure 2. Dataset Distribution (Validation)](./images/numinstancestvalid.png)
+![Figure 2. Dataset Distribution (Validation)](./images/numinstancesvalid.png)
 <p align="center">Figure 2. Dataset Distribution (Validation)</p>
 
 

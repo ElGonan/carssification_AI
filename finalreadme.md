@@ -40,11 +40,8 @@ and the labels are as follows:
 
 Each class contains a variety of images and are divided into training, validation, and test sets, distributed as follows:
 
-<div style="text-align: center;">
-  <img src="./images/numinstancestrain.png" alt="Figure 1. Dataset Distribution (Train)">
-  <figcaption>Subtítulo: Distribución del conjunto de datos de prueba</figcaption>
-</div>
-
+![Figure 1. Dataset Distribution (Train)](./images/numinstancestrain.png)
+<p align="center"><strong>Figure 1. Dataset Distribution (Train)</strong></p>
 
 
 

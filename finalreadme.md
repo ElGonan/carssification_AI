@@ -24,7 +24,7 @@ approach demonstrates the effectiveness of deep learning in automating the
 classification of car parts, thereby facilitating enhanced workflows in
 automotive industries.
 
-Keywords: image classification, ResNet50, car parts, convolutional neural
+<b>Keywords</b>: image classification, ResNet50, car parts, convolutional neural
 network, transfer learning, data augmentation
 
 ## Introduction

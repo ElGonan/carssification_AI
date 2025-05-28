@@ -4,21 +4,28 @@
 **A01067546**
 
 ## Abstract
-Car parts classification is relevant for automation in dealership, salvage, and
-workshop processes. A tool like this can enhance workflows in these fields. 
-This project consists of a Deep Learning (DL) model connected to a custom 
-Convolutional Neural Network (CNN). The complete model achieves accuracies of 
-up to 90.5%, with a precision of 89.4%, a recall of 87.5%, and an F-Score of 87.2%.
+This study presents a detailed evaluation of a deep learning model for the
+classification of car parts into 40 distict classes using a Convolutional Neural
+Network (CNN) based on the ResNet50 architecture. The model employs transfer
+learning by leveraging pretrained weights from ResNet50, which enhances its
+performance in distinguishing between multiple classes of car parts.
 
-The pretrained DL model used is ResNet50, which is a CNN that integrates 
-residual connections from previous layers, allowing for improved model 
-performance by facilitating the flow of information. Additionally, techniques 
-such as dense layers and dropout are implemented to optimize learning and 
-prevent overfitting. This comprehensive approach enables more accurate and 
-efficient classification of car parts, thus contributing to automation in the 
-industry.
+The model is constructed with several layers, including GlobalAveragePooling2D,
+Dropout, and multiple dense layers, culminating in a softmax output layer for
+multiclass classification. Training is conducted using categorical crossentropy
+as the loss function and the Adam optimizer, with early stopping and model
+checkpointing implemented to prevent overfitting and ensure optimal performance.
 
-Keywords: image classification, ResNet50, car parts, convolutional neural network
+Evaluation metrics, including precision, recall, and F1-score, are computed
+from the confusion matrix to assess model performance. The results indicate
+that the model achieves a validation accuracy of up to 90.5%, with a precision
+of 89.4%, a recall of 87.5%, and an F1-score of 87.2%. This comprehensive
+approach demonstrates the effectiveness of deep learning in automating the
+classification of car parts, thereby facilitating enhanced workflows in
+automotive industries.
+
+Keywords: image classification, ResNet50, car parts, convolutional neural
+network, transfer learning, data augmentation
 
 ## Introduction
 Image classification is a continuously evolving field within artificial intelligence, with applications ranging from object identification to image segmentation. This study focuses on the classification of car parts, an area that has received limited attention compared to other image classification applications. The choice of dataset was influenced by the search for a practical project that could be tackled with limited knowledge in artificial intelligence.

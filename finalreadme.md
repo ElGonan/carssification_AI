@@ -7,7 +7,7 @@
 This project presents a detailed evaluation of a deep learning model for the
 classification of car parts into 40 distict classes using a Convolutional Neural
 Network (CNN) based on the ResNet50 architecture. The model employs transfer
-learning by leveraging pretrained weights from ResNet50, which enhances its
+learning by leveraging pretrained weights from ResNet50[8], which enhances its
 performance in distinguishing between multiple classes of car parts.
 
 The model is constructed with several layers, including GlobalAveragePooling2D,
@@ -25,7 +25,7 @@ classification of car parts, thereby facilitating enhanced workflows in
 automotive industries.
 
 <b>Keywords</b>: image classification, ResNet50, car parts, convolutional neural
-network, transfer learning, data augmentation
+network, transfer learning, car
 
 ## Introduction
 The introduction of the chinnese automotive industry to our continent has led to an
@@ -34,23 +34,32 @@ more cars in circulation, the need for efficient and accurate classification of 
 parts has become paramount. This project aims to address this need partially by
 developing a machine learning model capable of classifying images of car parts to
 enhance the efficiency of automotive workflows. Not only for dealerships, but also
-for repair shops, scavengers, and other automotive-related businesses.
+for repair shops, scavengers, and other automotive-related businesses[1].
 
-This model is based on the ResNet50 architecture, one of the most widely used models
+To mitigate the challenges associated with manual classification, this project
+employs a deep learning approach, specifically using a Convolutional Neural Network
+(CNN) based on the ResNet50 architecture. CNNs are particularly well-suited for
+image classification tasks due to their ability to automatically learn and extract
+features from images, making them highly effective for tasks involving visual data. 
+The ResNet50 architecture, with its deep residual learning framework, allows for the
+training of very deep networks while addressing the vanishing gradient problem, which 
+is a common issue in deep learning[9].
+
+The model used model is based on the ResNet50 architecture, one of the most widely used models
 for image classification tasks, along with transfer learning techniques to improve
 the model's performance. Transfer learning allows the model to leverage
 pretrained weights from a model trained on a large dataset, such as ImageNet, to
 enhance its ability to classify images of car parts. This approach is particularly
 effective when the dataset is limited, as it allows the model to learn from
 features learned from a larger dataset, thereby improving its accuracy and
-generalization capabilities.
-
+generalization capabilities[4].
 
 ## Material and Methods
 ### Dataset 
 The dataset used in this study was sourced from Kaggle, specifically from a repository 
-containing images of various car parts[9]. This dataset is structured in folders 
-representing different classes, facilitating its use in machine learning models.
+containing [images of various car parts](https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes).
+This dataset is structured in folders representing different classes, facilitating its 
+use in machine learning models.
 
 The dataset followed the next structure:
 ```
@@ -58,7 +67,6 @@ The dataset followed the next structure:
 - test
 - valid
 - car parts.csv
-- EfficientNetB2-40-(224 X 224)- 96.90.h5
 ```
 and the labels are as follows:
 | 1-10  | 11-20 | 21-30 | 31-40  |
@@ -75,18 +83,45 @@ and the labels are as follows:
 | CRANKSHAFT         | LEAF SPRING       | RADIATOR HOSE    | WATER PUMP          |
 
 
-Each class contains a variety of images and are divided into training, validation,
-and test sets, distributed as follows:
-
+## Methodology
+# Preprocessing
+The dataset is distributed as follow:
 ![Figure 1. Dataset Distribution (Train)](./images/numinstancestrain.png)
 <p align="center"><em>Figure 1. Dataset Distribution (Train)</em></p>
+
+each instance is from a fixed size (254x254 pixles) and they are already
+separated in folders by class, so the preprocessing steps are minimal.
+
+The Validation and test sets are also already separated as follows:
 
 ![Figure 2. Dataset Distribution (Validation)](./images/numinstancesvalid.png)
 <p align="center"><em>igure 2. Dataset Distribution (Validation)</em></p>
 
-
 ![Figure 3. Dataset Distribution (Test)](./images/numinstancestest.png)
-<p align="center"><em>Figure 3. Dataset Distribution (Test</em>)</p>
+<p align="center"><em>Figure 3. Dataset Distribution (Test)</em></p>
+
+so they also requiered almost no prepocessing. However since the validation
+and Test data are not as sustantial as the training data, Data Augmentation
+was applied to both Validation and Test sets to increase the number of
+instances and improve the model's generalization capabilities. The augmentation
+techniques are:
+- rotation range
+    - 10
+- width shift range
+    - 0.2
+- height shift range
+    - 0.2
+- horizontal flip
+    - True
+
+Also as part of the preprocessing the `process_input` function from keras was
+used, this is due to the normalization process requiered by ResNet50[7] which
+requieres the images to be preprocessed in a specific way. This process consists
+basically in inverting the RGB channels to BGR, and then subtracting the mean
+pixel value from each channel.
+
+
+#
 
 
 ### Model Architecture
@@ -122,6 +157,8 @@ the patterns and characteristics of different classes of images.
 
 8. V. K. Mahto, "Transfer Learning using MobileNetV2 (acc=99.08%)," Kaggle, [Online]. Available: https://www.kaggle.com/code/vaibhavkumarmahto/transfer-learning-using-mobilenetv2-acc-99-08#Draw-Learning-Curve.
 
-9. Gpiosenka, "Car Parts 40 Classes," Kaggle, 2021. [Online]. Available: https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes.
+9. K. He, X. Zhang, S. Ren, and J. Sun, "Deep Residual Learning for Image Recognition," in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Las Vegas, NV, USA, Jun. 2016. [Online]. Available: https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf
 
+
+10. Gpiosenka, "Car Parts 40 Classes," Kaggle, 2021. [Online]. Available: https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes.
 

@@ -7,7 +7,7 @@
 This project presents a detailed evaluation of a deep learning model for the
 classification of car parts into 40 distict classes using a Convolutional Neural
 Network (CNN) based on the ResNet50 architecture. The model employs transfer
-learning by leveraging pretrained weights from ResNet50[3](https://doi.org/10.3390/bioengineering9030097)
+learning by leveraging pretrained weights from ResNet50[[3](https://doi.org/10.3390/bioengineering9030097)]
 , which enhances its performance in distinguishing between multiple classes of car parts.
 
 The model is constructed with several layers, that results in a model capable of

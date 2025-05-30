@@ -1,4 +1,4 @@
-# Carsification AI: A Machine Learning Model for Image Classification of Car Parts
+# Carssification AI: A Machine Learning Model for Image Classification of Car Parts
 
 **Alan Patricio González Bernal**  
 **A01067546**

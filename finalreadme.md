@@ -7,8 +7,8 @@
 This project presents a detailed evaluation of a deep learning model for the
 classification of car parts into 40 distict classes using a Convolutional Neural
 Network (CNN) based on the ResNet50 architecture. The model employs transfer
-learning by leveraging pretrained weights from ResNet50[8], which enhances its
-performance in distinguishing between multiple classes of car parts.
+learning by leveraging pretrained weights from ResNet50[3](https://doi.org/10.3390/bioengineering9030097)
+, which enhances its performance in distinguishing between multiple classes of car parts.
 
 The model is constructed with several layers, that results in a model capable of
 multiclass classification. Training is conducted using categorical crossentropy
@@ -17,8 +17,8 @@ checkpointing implemented to prevent overfitting and ensure optimal performance.
 
 Evaluation metrics, including precision, recall, and F1-score, are computed
 from the confusion matrix to assess model performance. The results indicate
-that the model achieves a validation accuracy of up to 90.5%, with a precision
-of 94.7%, a recall of 94%, and an F1-score of 93.8%. This comprehensive
+that the model achieves a validation accuracy of up to <b>90.5%</b>, with a precision
+of <b>94.7%</b>, a recall of <b>94%</b>, and an F1-score of <b>93.8%</b>. This comprehensive
 approach demonstrates the effectiveness of deep learning in automating the
 classification of car parts, thereby facilitating enhanced workflows in
 automotive industries.
@@ -32,7 +32,7 @@ vehicles in our country comes with a series of benefits and downsides, one of th
 downsides is the increasing number of car parts being damaged, due to accidents or
 errors in the dealerships. This problem impacts many lines of service, incluiding
 dealerships and work shops. In order to detect which parts are damaged, first is
-necesasry to be able to detect these parts automatically[1] To contribute to this 
+necesasry to be able to detect these parts automatically[1](https://doi.org/10.1155/2023/6460639) To contribute to this 
 challenge, this project will focus on developing an image classification model 
 capable of recognizing and categorizing vehicle parts from images.
 
@@ -42,7 +42,7 @@ well-suited for image classification tasks due to their ability to automatically
 learn and extract features from images, making them highly effective for tasks involving 
 visual data. The ResNet50 architecture, with its deep residual learning framework, 
 allows for the training of very deep networks while addressing the vanishing gradient
-problem, which is a common issue in deep learning[9].
+problem, which is a common issue in deep learning[7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf).
 
 The model used model is based on the ResNet50 architecture, one of the most widely used models
 for image classification tasks, along with transfer learning techniques to improve
@@ -51,12 +51,11 @@ pretrained weights from a model trained on a large dataset, such as ImageNet, to
 enhance its ability to classify images of car parts. This approach is particularly
 effective when the dataset is limited, as it allows the model to learn from
 features learned from a larger dataset, thereby improving its accuracy and
-generalization capabilities[4].
+generalization capabilities[3](https://doi.org/10.3390/bioengineering9030097).
 
 ## Material and Methods
 ### Dataset 
-The dataset used in this study was sourced from Kaggle, specifically from a repository 
-containing [images of various car parts](https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes).
+The dataset used in this study was sourced from Kaggle, the car-parts dataset[8](https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes).
 This dataset is structured in folders representing different classes, facilitating its 
 use in machine learning models.
 
@@ -92,7 +91,7 @@ The dataset is distributed as follows:
 
 each instance is from a fixed size (254x254 pixles) and they are already
 separated in folders by class, so the preprocessing steps are minimal,
-only requiring to define a batch size which is set to 16[8] and to
+only requiring to define a batch size which is set to 16[7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) and to
 define a class mode which is set to 'categorical' since the model
 is a multiclass classification model.
 
@@ -127,14 +126,29 @@ Also as part of the preprocessing the `process_input` function from keras was
 used, this is due to the normalization process requiered by ResNet50 which
 requieres the images to be preprocessed in a specific way. This process consists
 basically in inverting the RGB channels to BGR, and then subtracting the mean
-pixel value from each channel[7].
+pixel value from each channel[6](https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet/preprocess_input)[7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf).
+
+The batch size and number of epochs was selected as 16[5](https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com) and 25[3](https://doi.org/10.3390/bioengineering9030097) respectively, as it
+is closer to the state of the art and it is a good balance between training time and
+model performance.
+
+Lastly, the class mode of the model is set to 'categorical' , since the model is a
+multiclass classification model, this generates a one-hot encoded vector for each
+class, allowing the model to output a probability distribution over the classes.
 
 ## Model selection
 To tackle the problem of classifying car parts, a Convolutional Neural Network (CNN)
-based on the ResNet50 architecture was selected as the state of the art has shown[1][2][4][5][6]
+based on the ResNet50 architecture was selected as the state of the art has shown[1](https://doi.org/10.1155/2023/6460639)[2]()[3](https://doi.org/10.3390/bioengineering9030097)[4](https://openaccess.thecvf.com/content_CVPRW_2019/papers/MBCCV/Luo_Visual_Attention_in_Multi-Label_Image_Classification_CVPRW_2019_paper.pdf)[5](https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com)
 that CNNs are highly effective for image classification tasks. Along with the ResNet50
 architecture, transfer learning was employed to generate a model with increased accuracy
 and generalization capabilities.
+
+## evaluation metrics
+In order to comply with the state of the art[3](https://doi.org/10.3390/bioengineering9030097)[4](https://openaccess.thecvf.com/content_CVPRW_2019/papers/MBCCV/Luo_Visual_Attention_in_Multi-Label_Image_Classification_CVPRW_2019_paper.pdf)[5](https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com), the metrics used to
+evaluate the model are precision, recall, and F1-score. These metrics are
+calculated using the confusion matrix, which is a table that summarizes the
+performance of the classification model by comparing the predicted classes with the
+actual classes.  
 
 ## Model Architecture
 ResNet50 (Residual Network 50) is a deep convolutional
@@ -149,7 +163,12 @@ convolutional layers, batch normalization layers, and fully connected layers. Th
 model is designed to learn hierarchical features from images, starting from low-level
 features such as edges and textures, to high-level features such as shapes and objects.
 The model is trained using a large dataset of labeled images, allowing it to learn
-the patterns and characteristics of different classes of images[9].
+the patterns and characteristics of different classes of images[7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf).
+
+The ResNet50 model has been frozen, meaning that the weights of the model
+are not updated during training. This is done to leverage the pretrained weights
+from the ImageNet dataset, allowing the model to benefit from the features learned
+from the ImageNet dataset.
 
 Along with the ResNet50 model, the custom model architecture is a sequential model
 that has the next hyperparameters:
@@ -175,9 +194,7 @@ optimizer, with early stopping marked at the fifth non-improvement epoch and mod
 checkpointing implemented to prevent overfitting and ensure optimal performance. 
 
 ## Training and first evaluation
-The batch size and number of epochs was selected as 16[6] and 25[1] respectively, as it
-is closer to the state of the art and it is a good balance between training time and
-model performance. The model was trained using the training set and got the next metrics:
+The model was trained using the training set and got the next metrics:
 ```
 - Precision
     - 89.4%
@@ -249,7 +266,7 @@ training set and the same parameters. The model achieved the next metrics:
     - 93.8%
 ```
 
-If we see the Figure x, we can see that
+If we see the Figure 6, we can see that
 the model is not overfitting and the validation accuracy is close to the training
 accuracy, which indicates that the model is generalizing well to unseen data.
 
@@ -259,46 +276,47 @@ where it was not improving anymore, thus preventing overfitting and saving train
 resources).
 
 <p align="center">
-  <img src="./images/lastModel/Final_plotedite.png" alt="Figure x. Model Accuracy and loss" width="600"/>
+  <img src="./images/lastModel/Final_plotedite.png" alt="Figure 6. Model Accuracy and loss" width="600"/>
 </p>
-<p align="center"><em>Figure x. Model Accuracy and loss</em></p>
+<p align="center"><em>Figure 6. Model Accuracy and loss</em></p>
 
 The model was also evaluated using a confusion matrix, which shows the
 number of correct and incorrect predictions for each class. The confusion matrix
-is shown in Figure x. The figure shows that the model is able to
+is shown in Figure 7. The figure shows that the model is able to
 classify most of the classes correctly, with some classes having a higher
 number of misclassifications than others. The diagonal values represent the
 number of correct predictions for each class, while the off-diagonal values
 represent the number of misclassifications.
 <p align="center">
-  <img src="./images/lastModel/Final_Matrix.png" alt="Figure x. Confusion Matrix" width="600"/>
+  <img src="./images/lastModel/Final_Matrix.png" alt="Figure 7. Confusion Matrix" width="600"/>
 </p>
-<p align="center"><em>Figure x. Confusion Matrix</em></p>
+<p align="center"><em>Figure 7. Confusion Matrix</em></p>
 
 This results indicate that the diagnosis of the model was correct and the
 model is capable of classifying car parts with a high degree of accuracy.
 
 ## Conclusion
-In conclusion, the project successfully developed a deep learning model for
-the classification of car parts into 40 distinct classes using a Convolutional
-Neural Network (CNN) based on the ResNet50 architecture. The model employed
-transfer learning techniques to enhance its performance, leveraging pretrained
-weights from ResNet50 to improve its ability to classify images of car parts.
+In conclusion, the project successfully developed a deep learning model for classifying 
+car parts into 40 distinct classes using a Convolutional Neural Network (CNN) based on the 
+ResNet50 architecture, employing transfer learning techniques to enhance its performance.
 
-Even though the model got good results, there is still room for improvement.
-Future work could involve further refining the model architecture, experimenting
-with different hyperparameters, and exploring additional data augmentation techniques
-to improve the model's generalization capabilities. Additionally, the model could
-be tested on a larger and more diverse dataset to evaluate its performance in real-world
-scenarios. The model could also be integrated into a larger system for automating
-the classification of car parts, which could facilitate enhanced workflows in
-automotive industries.
+Despite achieving good results, there is room for improvement. Future work could involve 
+refining the model architecture, experimenting with different hyperparameters, and exploring 
+additional data augmentation techniques to enhance generalization. Testing the model on a larger 
+and more diverse dataset would also be beneficial for evaluating its performance in real-world scenarios.
 
-Also, the model can be implemented on a mobile device or a web application
-to allow users to classify car parts in real-time, which could be useful for
-dealerships, workshops, and other automotive industries. This could help to
-automate the process of identifying damaged car parts, thereby improving
-efficiency and reducing the time required for repairs.
+Additionally, the model could be integrated into a broader system for automating car part 
+classification, facilitating workflows in the automotive industry. Implementing it on mobile 
+devices or web applications would allow users to classify parts in real-time, improving 
+efficiency and reducing repair times.
+
+## Executing the model
+In this repository, you can find the Jupyter Notebook used to train the model and
+evaluate it. The notebook is structured to allow you to run the model on your own machine,
+and it includes all the necessary steps to preprocess the data, train the model, and evaluate its performance.
+
+Also the model is saved in the `model` folder, so you can load it and use it to classify car parts.
+It's important to note that it's needed to first unzip the model in order to use it.
 
 
 ## References
@@ -306,20 +324,14 @@ efficiency and reducing the time required for repairs.
 
 [2] K. Pasupa, P. Kittiworapanya, N. Hongngern, and K. Woraratpanya, "Evaluation of deep learning algorithms for semantic segmentation of car parts," Complex & Intelligent Systems, vol. 8, pp. 3613–3625, May 2021. [Online]. Available: https://doi.org/10.1007/s40747-021-00397-8
 
-[3] PyTorch, "torchvision.transforms — Torchvision 0.16 documentation," PyTorch.org, [Online]. Available: https://docs.pytorch.org/vision/stable/transforms.html.
+[3] S. Bechelli and J. Delhommelle, "Machine learning and deep learning algorithms for skin cancer classification from dermoscopic images," Bioengineering, vol. 9, no. 3, p. 97, Feb. 2022. [Online]. Available: https://doi.org/10.3390/bioengineering9030097
 
-[4] S. Bechelli and J. Delhommelle, "Machine learning and deep learning algorithms for skin cancer classification from dermoscopic images," Bioengineering, vol. 9, no. 3, p. 97, Feb. 2022. [Online]. Available: https://doi.org/10.3390/bioengineering9030097
+[4] Y. Luo, M. Jiang, and Q. Zhao, "Visual Attention in Multi-Label Image Classification," in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW), 2019, [Online]. Available: https://openaccess.thecvf.com/content_CVPRW_2019/papers/MBCCV/Luo_Visual_Attention_in_Multi-Label_Image_Classification_CVPRW_2019_paper.pdf
 
-[5] Y. Luo, M. Jiang, and Q. Zhao, "Visual Attention in Multi-Label Image Classification," in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW), 2019, [Online]. Available: https://openaccess.thecvf.com/content_CVPRW_2019/papers/MBCCV/Luo_Visual_Attention_in_Multi-Label_Image_Classification_CVPRW_2019_paper.pdf
+[5] M. Pektaş, "Performance Analysis of Efficient Deep Learning Models for Multi-Label Classification of Fundus Image," Artificial Intelligence Theory and Applications, vol. [Online]. Available: https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com
 
-[6] M. Pektaş, "Performance Analysis of Efficient Deep Learning Models for Multi-Label Classification of Fundus Image," Artificial Intelligence Theory and Applications, vol. [Online]. Available: https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com
+[6] TensorFlow, "tf.keras.applications.resnet.preprocess_input," [Online]. Available: https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet/preprocess_input
 
-[7] TensorFlow, "tf.keras.applications.resnet.preprocess_input," [Online]. Available: https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet/preprocess_input
+[7] K. He, X. Zhang, S. Ren, and J. Sun, "Deep Residual Learning for Image Recognition," in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Las Vegas, NV, USA, Jun. 2016. [Online]. Available: https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf
 
-[8] V. K. Mahto, "Transfer Learning using MobileNetV2 (acc=99.08%)," Kaggle, [Online]. Available: https://www.kaggle.com/code/vaibhavkumarmahto/transfer-learning-using-mobilenetv2-acc-99-08#Draw-Learning-Curve.
-
-[9] K. He, X. Zhang, S. Ren, and J. Sun, "Deep Residual Learning for Image Recognition," in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Las Vegas, NV, USA, Jun. 2016. [Online]. Available: https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf
-
-[10] Gpiosenka, "Car Parts 40 Classes," Kaggle, 2021. [Online]. Available: https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes.
-
-[11] G. Piosenka, "50 classes-EfficientNetB0 F1 score = 99%," Kaggle, [Online]. Available: https://www.kaggle.com/code/gpiosenka/50-classes-efficientnetb0-f1-score-99.
+[8] Gpiosenka, "Car Parts 40 Classes," Kaggle, 2021. [Online]. Available: https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes.

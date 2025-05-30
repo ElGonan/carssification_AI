@@ -111,16 +111,14 @@ and Test data are not as sustantial as the training data, Data Augmentation
 was applied to both Validation and Test sets to increase the number of
 instances and improve the model's generalization capabilities. The augmentation
 techniques are:
-```
-- rotation range
-    - 10
-- width shift range
-    - 0.2
-- height shift range
-    - 0.2
-- horizontal flip
-    - True
-```
+
+| Technique | Value |
+|------|------------|
+| Rotation Range|   10   |
+|width shift range |0.2 | 
+| height shift range | 0.2 |
+| horizontal flip |true |
+
 
 Also as part of the preprocessing the `process_input` function from keras was
 used, this is due to the normalization process requiered by ResNet50 which

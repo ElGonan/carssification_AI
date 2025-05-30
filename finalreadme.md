@@ -10,8 +10,7 @@ Network (CNN) based on the ResNet50 architecture. The model employs transfer
 learning by leveraging pretrained weights from ResNet50[8], which enhances its
 performance in distinguishing between multiple classes of car parts.
 
-The model is constructed with several layers, including GlobalAveragePooling2D,
-Dropout, and multiple dense layers, culminating in a softmax output layer for
+The model is constructed with several layers, that results in a model capable of
 multiclass classification. Training is conducted using categorical crossentropy
 as the loss function and the Adam optimizer, with early stopping and model
 checkpointing implemented to prevent overfitting and ensure optimal performance.
@@ -19,7 +18,7 @@ checkpointing implemented to prevent overfitting and ensure optimal performance.
 Evaluation metrics, including precision, recall, and F1-score, are computed
 from the confusion matrix to assess model performance. The results indicate
 that the model achieves a validation accuracy of up to 90.5%, with a precision
-of 89.4%, a recall of 87.5%, and an F1-score of 87.2%. This comprehensive
+of 94.7%, a recall of 94%, and an F1-score of 93.8%. This comprehensive
 approach demonstrates the effectiveness of deep learning in automating the
 classification of car parts, thereby facilitating enhanced workflows in
 automotive industries.
@@ -84,13 +83,16 @@ and the labels are as follows:
 
 
 ## Methodology
-# Preprocessing
-The dataset is distributed as follow:
+### Preprocessing
+The dataset is distributed as follows:
 ![Figure 1. Dataset Distribution (Train)](./images/numinstancestrain.png)
 <p align="center"><em>Figure 1. Dataset Distribution (Train)</em></p>
 
 each instance is from a fixed size (254x254 pixles) and they are already
-separated in folders by class, so the preprocessing steps are minimal.
+separated in folders by class, so the preprocessing steps are minimal,
+only requiring to define a batch size which is set to 16[8] and to
+define a class mode which is set to 'categorical' since the model
+is a multiclass classification model.
 
 The Validation and test sets are also already separated as follows:
 
@@ -100,7 +102,7 @@ The Validation and test sets are also already separated as follows:
 ![Figure 3. Dataset Distribution (Test)](./images/numinstancestest.png)
 <p align="center"><em>Figure 3. Dataset Distribution (Test)</em></p>
 
-so they also requiered almost no prepocessing. However since the validation
+Thus, they also required almost no preprocessing. However since the validation
 and Test data are not as sustantial as the training data, Data Augmentation
 was applied to both Validation and Test sets to increase the number of
 instances and improve the model's generalization capabilities. The augmentation
@@ -115,16 +117,19 @@ techniques are:
     - True
 
 Also as part of the preprocessing the `process_input` function from keras was
-used, this is due to the normalization process requiered by ResNet50[7] which
+used, this is due to the normalization process requiered by ResNet50 which
 requieres the images to be preprocessed in a specific way. This process consists
 basically in inverting the RGB channels to BGR, and then subtracting the mean
-pixel value from each channel.
+pixel value from each channel[7].
 
+## Model selection
+To tackle the problem of classifying car parts, a Convolutional Neural Network (CNN)
+based on the ResNet50 architecture was selected as the state of the art has shown[1][2][4][5][6]
+that CNNs are highly effective for image classification tasks. Along with the ResNet50
+architecture, transfer learning was employed to generate a model with increased accuracy
+and generalization capabilities.
 
-#
-
-
-### Model Architecture
+## Model Architecture
 ResNet50 (Residual Network 50) is a deep convolutional
 neural network that has been pretrained on the ImageNet dataset, which contains millions
 of images across thousands of categories. The Residual Network architecture works by
@@ -137,7 +142,64 @@ convolutional layers, batch normalization layers, and fully connected layers. Th
 model is designed to learn hierarchical features from images, starting from low-level
 features such as edges and textures, to high-level features such as shapes and objects.
 The model is trained using a large dataset of labeled images, allowing it to learn
-the patterns and characteristics of different classes of images.
+the patterns and characteristics of different classes of images[9].
+
+Along with the ResNet50 model, the custom model architecture is a sequential model
+that includes the following layers:
+- ResNet50
+- Global Average Pooling
+- Dense (512 units, ReLU activation)
+- Dense (256 units, ReLU activation)
+- Dense (128 units, ReLU activation)
+- Dense (40 units, Softmax activation)
+
+This architecture allows the model to learn complex features from the images and
+classify them into one of the 40 classes of car parts. The model is trained using
+categorical crossentropy as the loss function and the Adam optimizer, with early
+stopping marked at the fifth non-improvement epoch and model checkpointing 
+implemented to prevent overfitting and ensure optimal performance. 
+
+### baseline metrics
+The baseline metrics for the model were established as:
+```
+- Precision
+    - 99.3%
+- Recall
+    - 99.2%
+- F1-score
+    - 99.1%
+```
+[11]
+
+## Training and first evaluation
+The model was trained using the training set, with a batch size of 16 and after 25 epochs,
+the model achieved the next metrics:
+- Precision
+    - 89.4%
+- Recall
+    - 87.5%
+- F1-score
+    - 87.2%
+
+## Model refinement
+
+## Retraining and final evaluation
+
+After the refinment of the model, the model was retrained using the same
+training set and the same parameters. The model achieved the next metrics:
+
+- Precision
+    - 94.7%
+- Recall
+    - 94.0%
+- F1-score
+    - 93.8%
+
+This results indicate that the diagnosis of the model was correct and the
+model is capable of classifying car parts with a high degree of accuracy.
+
+## Conclusion
+
 
 
 ## References
@@ -162,3 +224,4 @@ the patterns and characteristics of different classes of images.
 
 10. Gpiosenka, "Car Parts 40 Classes," Kaggle, 2021. [Online]. Available: https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes.
 
+11. G. Piosenka, "50 classes-EfficientNetB0 F1 score = 99%," Kaggle, [Online]. Available: https://www.kaggle.com/code/gpiosenka/50-classes-efficientnetb0-f1-score-99.

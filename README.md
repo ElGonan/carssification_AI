@@ -136,21 +136,22 @@ Lastly, the class mode of the model is set to 'categorical' , since the model is
 multiclass classification model, this generates a one-hot encoded vector for each
 class, allowing the model to output a probability distribution over the classes.
 
-## Model selection
+## Model
+### Model selection
 To tackle the problem of classifying car parts, a Convolutional Neural Network (CNN)
 based on the ResNet50 architecture was selected as the state of the art has shown[[1](https://doi.org/10.1155/2023/6460639)][[2](https://doi.org/10.1007/s40747-021-00397-8)][[3](https://doi.org/10.3390/bioengineering9030097)][[4](https://openaccess.thecvf.com/content_CVPRW_2019/papers/MBCCV/Luo_Visual_Attention_in_Multi-Label_Image_Classification_CVPRW_2019_paper.pdf)][[5](https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com)]
 that CNNs are highly effective for image classification tasks. Along with the ResNet50
 architecture, transfer learning was employed to generate a model with increased accuracy
 and generalization capabilities.
 
-## evaluation metrics
+### evaluation metrics
 In order to comply with the state of the art[[3](https://doi.org/10.3390/bioengineering9030097)][[4](https://openaccess.thecvf.com/content_CVPRW_2019/papers/MBCCV/Luo_Visual_Attention_in_Multi-Label_Image_Classification_CVPRW_2019_paper.pdf)][[5](https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com)], the metrics used to
 evaluate the model are precision, recall, and F1-score. These metrics are
 calculated using the confusion matrix, which is a table that summarizes the
 performance of the classification model by comparing the predicted classes with the
 actual classes.  
 
-## Model Architecture
+### Model Architecture
 ResNet50 (Residual Network 50) is a deep convolutional
 neural network that has been pretrained on the ImageNet dataset, which contains millions
 of images across thousands of categories. The Residual Network architecture works by
@@ -193,7 +194,8 @@ The model is trained using categorical crossentropy as the loss function and the
 optimizer, with early stopping marked at the fifth non-improvement epoch and model 
 checkpointing implemented to prevent overfitting and ensure optimal performance. 
 
-## Training and first evaluation
+## Execution
+### Training and first evaluation
 The model was trained using the training set and got the next metrics:
 ```
 - Precision
@@ -228,7 +230,7 @@ accuracy. This indicates that the model is overfitting to the training data, mea
 that it is learning the noise and details of the training data rather than the
 underlying patterns that are common to all car parts.
 
-## Model refinement
+### Model refinement
 
 After the first evaluation, the model was refined by adding dropout layers to
 the architecture to prevent overfitting and improve the model's generalization capabilities.
@@ -252,7 +254,7 @@ This helps to reduce overfitting by randomly setting a fraction of the input uni
 during training, which forces the model to learn more robust features and prevents it
 from relying too heavily on any specific feature.
 
-## Retraining and final evaluation
+### Retraining and final evaluation
 
 After the refinment of the model, the model was retrained using the same
 training set and the same parameters. The model achieved the next metrics:

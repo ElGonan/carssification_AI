@@ -42,7 +42,7 @@ well-suited for image classification tasks due to their ability to automatically
 learn and extract features from images, making them highly effective for tasks involving 
 visual data. The ResNet50 architecture, with its deep residual learning framework, 
 allows for the training of very deep networks while addressing the vanishing gradient
-problem, which is a common issue in deep learning[ [7](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) ].
+problem, which is a common issue in deep learning[[7](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)].
 
 The model used model is based on the ResNet50 architecture, one of the most widely used models
 for image classification tasks, along with transfer learning techniques to improve
@@ -91,7 +91,7 @@ The dataset is distributed as follows:
 
 each instance is from a fixed size (254x254 pixles) and they are already
 separated in folders by class, so the preprocessing steps are minimal,
-only requiring to define a batch size which is set to 16[ [7](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) ] and to
+only requiring to define a batch size which is set to 16[[7](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)] and to
 define a class mode which is set to 'categorical' since the model
 is a multiclass classification model.
 
@@ -126,7 +126,7 @@ Also as part of the preprocessing the `process_input` function from keras was
 used, this is due to the normalization process requiered by ResNet50 which
 requieres the images to be preprocessed in a specific way. This process consists
 basically in inverting the RGB channels to BGR, and then subtracting the mean
-pixel value from each channel[ [6](https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet/preprocess_input) ][ [7](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) ].
+pixel value from each channel[ [6](https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet/preprocess_input) ][[7](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)].
 
 The batch size and number of epochs was selected as 16[[5](https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com)] and 25[[3](https://doi.org/10.3390/bioengineering9030097)] respectively, as it
 is closer to the state of the art and it is a good balance between training time and

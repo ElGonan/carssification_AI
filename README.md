@@ -32,7 +32,7 @@ vehicles in our country comes with a series of benefits and downsides, one of th
 downsides is the increasing number of car parts being damaged, due to accidents or
 errors in the dealerships. This problem impacts many lines of service, incluiding
 dealerships and work shops. In order to detect which parts are damaged, first is
-necesasry to be able to detect these parts automatically[1](https://doi.org/10.1155/2023/6460639) To contribute to this 
+necesasry to be able to detect these parts automatically[[1](https://doi.org/10.1155/2023/6460639)] To contribute to this 
 challenge, this project will focus on developing an image classification model 
 capable of recognizing and categorizing vehicle parts from images.
 
@@ -42,7 +42,7 @@ well-suited for image classification tasks due to their ability to automatically
 learn and extract features from images, making them highly effective for tasks involving 
 visual data. The ResNet50 architecture, with its deep residual learning framework, 
 allows for the training of very deep networks while addressing the vanishing gradient
-problem, which is a common issue in deep learning[7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf).
+problem, which is a common issue in deep learning[[7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)].
 
 The model used model is based on the ResNet50 architecture, one of the most widely used models
 for image classification tasks, along with transfer learning techniques to improve
@@ -51,11 +51,11 @@ pretrained weights from a model trained on a large dataset, such as ImageNet, to
 enhance its ability to classify images of car parts. This approach is particularly
 effective when the dataset is limited, as it allows the model to learn from
 features learned from a larger dataset, thereby improving its accuracy and
-generalization capabilities[3](https://doi.org/10.3390/bioengineering9030097).
+generalization capabilities[[3](https://doi.org/10.3390/bioengineering9030097)].
 
 ## Material and Methods
 ### Dataset 
-The dataset used in this study was sourced from Kaggle, the car-parts dataset[8](https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes).
+The dataset used in this study was sourced from Kaggle, the car-parts dataset[[8](https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes)].
 This dataset is structured in folders representing different classes, facilitating its 
 use in machine learning models.
 
@@ -91,7 +91,7 @@ The dataset is distributed as follows:
 
 each instance is from a fixed size (254x254 pixles) and they are already
 separated in folders by class, so the preprocessing steps are minimal,
-only requiring to define a batch size which is set to 16[7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) and to
+only requiring to define a batch size which is set to 16[[7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)] and to
 define a class mode which is set to 'categorical' since the model
 is a multiclass classification model.
 
@@ -126,9 +126,9 @@ Also as part of the preprocessing the `process_input` function from keras was
 used, this is due to the normalization process requiered by ResNet50 which
 requieres the images to be preprocessed in a specific way. This process consists
 basically in inverting the RGB channels to BGR, and then subtracting the mean
-pixel value from each channel[6](https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet/preprocess_input)[7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf).
+pixel value from each channel[ [6](https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet/preprocess_input) ][ [7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) ].
 
-The batch size and number of epochs was selected as 16[5](https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com) and 25[3](https://doi.org/10.3390/bioengineering9030097) respectively, as it
+The batch size and number of epochs was selected as 16[[5](https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com)] and 25[[3](https://doi.org/10.3390/bioengineering9030097)] respectively, as it
 is closer to the state of the art and it is a good balance between training time and
 model performance.
 
@@ -138,13 +138,13 @@ class, allowing the model to output a probability distribution over the classes.
 
 ## Model selection
 To tackle the problem of classifying car parts, a Convolutional Neural Network (CNN)
-based on the ResNet50 architecture was selected as the state of the art has shown[1](https://doi.org/10.1155/2023/6460639)[2]()[3](https://doi.org/10.3390/bioengineering9030097)[4](https://openaccess.thecvf.com/content_CVPRW_2019/papers/MBCCV/Luo_Visual_Attention_in_Multi-Label_Image_Classification_CVPRW_2019_paper.pdf)[5](https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com)
+based on the ResNet50 architecture was selected as the state of the art has shown[[1](https://doi.org/10.1155/2023/6460639)][[2](https://doi.org/10.1007/s40747-021-00397-8)][[3](https://doi.org/10.3390/bioengineering9030097)][[4](https://openaccess.thecvf.com/content_CVPRW_2019/papers/MBCCV/Luo_Visual_Attention_in_Multi-Label_Image_Classification_CVPRW_2019_paper.pdf)][[5](https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com)]
 that CNNs are highly effective for image classification tasks. Along with the ResNet50
 architecture, transfer learning was employed to generate a model with increased accuracy
 and generalization capabilities.
 
 ## evaluation metrics
-In order to comply with the state of the art[3](https://doi.org/10.3390/bioengineering9030097)[4](https://openaccess.thecvf.com/content_CVPRW_2019/papers/MBCCV/Luo_Visual_Attention_in_Multi-Label_Image_Classification_CVPRW_2019_paper.pdf)[5](https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com), the metrics used to
+In order to comply with the state of the art[[3](https://doi.org/10.3390/bioengineering9030097)][[4](https://openaccess.thecvf.com/content_CVPRW_2019/papers/MBCCV/Luo_Visual_Attention_in_Multi-Label_Image_Classification_CVPRW_2019_paper.pdf)][[5](https://dergipark.org.tr/en/download/article-file/3202713?ref=https://git.chanpinqingbaoju.com)], the metrics used to
 evaluate the model are precision, recall, and F1-score. These metrics are
 calculated using the confusion matrix, which is a table that summarizes the
 performance of the classification model by comparing the predicted classes with the
@@ -163,7 +163,7 @@ convolutional layers, batch normalization layers, and fully connected layers. Th
 model is designed to learn hierarchical features from images, starting from low-level
 features such as edges and textures, to high-level features such as shapes and objects.
 The model is trained using a large dataset of labeled images, allowing it to learn
-the patterns and characteristics of different classes of images[7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf).
+the patterns and characteristics of different classes of images[[7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)].
 
 The ResNet50 model has been frozen, meaning that the weights of the model
 are not updated during training. This is done to leverage the pretrained weights

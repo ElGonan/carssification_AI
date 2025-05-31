@@ -213,7 +213,11 @@ This metrics where calculated using the confusion matrix, which is presented on 
 
 This metrics and the Figure 5 indicate that there's room for improvement as overfitting
 (high training accuracy and low validation accuracy) is present. Also the
-loss values indicate the model is not converging, as the training loss is significantly lower than the validation loss. 
+loss values indicate the model is not converging, as the training loss is 
+significantly lower than the validation loss. It's important to note that even
+though it was set to run for 25 epochs, it stopped on the 7th due to the 
+early stopping which indicates the model reached a point where there was
+no improvement anymore. 
 
 <p align="center">
   <img src="./images/firstModel/all.png" alt="Figure 5. Model accuracy and Loss. First evaluation" width="400"/>

@@ -163,7 +163,7 @@ convolutional layers, batch normalization layers, and fully connected layers. Th
 model is designed to learn hierarchical features from images, starting from low-level
 features such as edges and textures, to high-level features such as shapes and objects.
 The model is trained using a large dataset of labeled images, allowing it to learn
-the patterns and characteristics of different classes of images[[7](ttps://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)].
+the patterns and characteristics of different classes of images[[7](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)].
 
 The ResNet50 model has been frozen, meaning that the weights of the model
 are not updated during training. This is done to leverage the pretrained weights

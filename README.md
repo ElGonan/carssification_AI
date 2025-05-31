@@ -206,7 +206,7 @@ The model was trained using the training set and got the next metrics:
 ```
 This metrics where calculated using the confusion matrix, which is presented on figure 4.
 <p align="center">
-  <img src="./images/secondimprovedModel/matrix.png" alt="Figure 4. Confusion Matrix. First evaluation" width="600"/>
+  <img src="./images/firstModel/matrix.png" alt="Figure 4. Confusion Matrix. First evaluation" width="600"/>
 </p>
 <p align="center"><em>Figure 4. Confusion Matrix. First evaluation</em></p>
 
@@ -216,7 +216,7 @@ This metrics and the Figure 5 indicate that there's room for improvement as over
 loss values indicate the model is not converging, as the training loss is significantly lower than the validation loss. 
 
 <p align="center">
-  <img src="./images/secondimprovedModel/all.png" alt="Figure 5. Model accuracy and Loss. First evaluation" width="400"/>
+  <img src="./images/firstModel/all.png" alt="Figure 5. Model accuracy and Loss. First evaluation" width="400"/>
 </p>
 <p align="center">
   <em>Figure 5. Model accuracy and Loss. First evaluation</em>

@@ -10,8 +10,8 @@ Network (CNN) based on the ResNet50 architecture. The model employs transfer
 learning by leveraging pretrained weights from ResNet50[[3](https://doi.org/10.3390/bioengineering9030097)]
 , which enhances its performance in distinguishing between multiple classes of car parts.
 
-The model is constructed with several layers, that results in a model capable of
-multiclass classification. Training is conducted using categorical crossentropy
+The model is constructed with several layers, enabling multiclass classification
+ Training is conducted using categorical crossentropy
 as the loss function and the Adam optimizer, with early stopping and model
 checkpointing implemented to prevent overfitting and ensure optimal performance.
 
@@ -30,9 +30,9 @@ network, transfer learning, car
 The increasing number of vehicles, associated with the introduction of Chinese
 vehicles in our country comes with a series of benefits and downsides, one of the
 downsides is the increasing number of car parts being damaged, due to accidents or
-errors in the dealerships. This problem impacts many lines of service, incluiding
+errors in the dealerships. This problem impacts many lines of service, including
 dealerships and work shops. In order to detect which parts are damaged, first is
-necesasry to be able to detect these parts automatically[[1](https://doi.org/10.1155/2023/6460639)] To contribute to this 
+necessary to be able to detect these parts automatically[[1](https://doi.org/10.1155/2023/6460639)] To contribute to this 
 challenge, this project will focus on developing an image classification model 
 capable of recognizing and categorizing vehicle parts from images.
 
@@ -70,9 +70,9 @@ and the labels are as follows:
 | 1-10  | 11-20 | 21-30 | 31-40  |
 |--------------------|-------------------|------------------|---------------------|
 | AIR COMPRESSOR     | CYLINDER HEAD     | LOWER CONTROL ARM| RIM                 |
-| ALTERNATOR         | DISTRIBUTOIR      | MUFFLER          | SPARK PLUG          |
+| ALTERNATOR         | DISTRIBUTOR       | MUFFLER          | SPARK PLUG          |
 | BATTERY            | ENGINE BLOCK      | OIL FILTER       | STARTER             |
-| BRAKE CALIPER      | FUEL IJNECTOR     | OILF PAN         | TAILLIGHTS          |
+| BRAKE CALIPER      | FUEL IJNECTOR     | OIL PAN          | TAILLIGHTS          |
 | BRAKE PAD          | FUSE BOX          | OVERFLOW TANK    | THERMOSTAT          |
 | BRAKE ROTOR        | GAS CAP           | OXYGEN SENSOR    | TORQUE CONVERTER    |
 | CAMSHAFT           | HEADLIGHTS        | PISTON           | TRANSMISSION        |
@@ -90,9 +90,12 @@ The dataset is distributed as follows:
 <p align="center"><em>Figure 1. Dataset Distribution (Train)</em></p>
 
 each instance is from a fixed size (254x254 pixles) and they are already
-separated in folders by class, so the preprocessing steps are minimal,
-only requiring to define a batch size which is set to 16[[7](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)] and to
-define a class mode which is set to 'categorical' since the model
+separated in folders by class, so to preprocess the data, the `ImageDataGenerator` class from Keras was used.
+This class allows for easy loading and preprocessing of images, including
+data augmentation techniques to improve the model's generalization capabilities.
+
+The definition of the batch size which is set to 16[[7](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)] and to
+define a class mode which is set to `categorical` since the model
 is a multiclass classification model.
 
 The Validation and test sets are also already separated as follows:
@@ -105,12 +108,10 @@ The Validation and test sets are also already separated as follows:
   <em>Figure 2. Dataset Distribution (Validation) &nbsp;&nbsp;&nbsp; Figure 3. Dataset Distribution (Test)</em>
 </p>
 
-
-Thus, they also required almost no preprocessing. However since the validation
-and Test data are not as sustantial as the training data, Data Augmentation
-was applied to both Validation and Test sets to increase the number of
-instances and improve the model's generalization capabilities. The augmentation
-techniques are:
+However since the validation and Test data are not as sustantial as the training 
+data, Data Augmentation was applied to both Validation and Test sets to increase 
+the number of instances and improve the model's generalization capabilities. 
+The augmentation techniques are:
 
 | Technique | Value |
 |------|------------|
@@ -205,7 +206,7 @@ The model was trained using the training set and got the next metrics:
 ```
 This metrics where calculated using the confusion matrix, which is presented on figure 4.
 <p align="center">
-  <img src="./images/secondimprovedModel/descarga (2).png" alt="Figure 1. Dataset Distribution (Train)" width="600"/>
+  <img src="./images/secondimprovedModel/descarga (2).png" alt="Figure 4. Confusion Matrix. First evaluation" width="600"/>
 </p>
 <p align="center"><em>Figure 4. Confusion Matrix. First evaluation</em></p>
 
@@ -214,8 +215,8 @@ This metrics and the Figure 5 indicates that there's room for improvement as ove
 (high training accuracy and low validation accuracy) is present. 
 
 <p align="center">
-  <img src="./images//secondimprovedModel/descarga.png" alt="Figure 2. Dataset Distribution (Validation)" width="400"/>
-  <img src="./images//secondimprovedModel/descarga (1).png" alt="Figure 3. Dataset Distribution (Test)" width="400"/>
+  <img src="./images/secondimprovedModel/descarga.png" alt="Figure 5. Model accuracy and Loss. First evaluation" width="400"/>
+  <img src="./images/secondimprovedModel/descarga (1).png" width="400"/>
 </p>
 <p align="center">
   <em>Figure 5. Model accuracy and Loss. First evaluation</em>
@@ -300,7 +301,7 @@ In conclusion, the project successfully developed a deep learning model for clas
 car parts into 40 distinct classes using a Convolutional Neural Network (CNN) based on the 
 ResNet50 architecture, employing transfer learning techniques to enhance its performance.
 
-Despite achieving good results, there is room for improvement. Future work could involve 
+While good results were achieved, there is room for improvement. Future work could involve 
 refining the model architecture, experimenting with different hyperparameters, and exploring 
 additional data augmentation techniques to enhance generalization. Testing the model on a larger 
 and more diverse dataset would also be beneficial for evaluating its performance in real-world scenarios.

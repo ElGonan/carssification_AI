@@ -98,7 +98,7 @@ The definition of the batch size which is set to 16[[7](https://www.cv-foundatio
 define a class mode which is set to `categorical` since the model
 is a multiclass classification model.
 
-The Validation and test sets are also already separated as follows:
+The validation and test sets are also already separated as follows:
 
 <p align="center">
   <img src="./images/numinstancesvalid.png" alt="Figure 2. Dataset Distribution (Validation)" width="400"/>
@@ -109,7 +109,7 @@ The Validation and test sets are also already separated as follows:
 </p>
 
 However since the validation and Test data are not as sustantial as the training 
-data, Data Augmentation was applied to both Validation and Test sets to increase 
+data, Data Augmentation was applied to both validation and Test sets to increase 
 the number of instances and improve the model's generalization capabilities. 
 The augmentation techniques are:
 
@@ -206,28 +206,27 @@ The model was trained using the training set and got the next metrics:
 ```
 This metrics where calculated using the confusion matrix, which is presented on figure 4.
 <p align="center">
-  <img src="./images/secondimprovedModel/descarga (2).png" alt="Figure 4. Confusion Matrix. First evaluation" width="600"/>
+  <img src="./images/secondimprovedModel/matrix.png" alt="Figure 4. Confusion Matrix. First evaluation" width="600"/>
 </p>
 <p align="center"><em>Figure 4. Confusion Matrix. First evaluation</em></p>
 
 
-This metrics and the Figure 5 indicates that there's room for improvement as overfitting
-(high training accuracy and low validation accuracy) is present. 
+This metrics and the Figure 5 indicate that there's room for improvement as overfitting
+(high training accuracy and low validation accuracy) is present. Also the
+loss values indicate the model is not converging, as the training loss is significantly lower than the validation loss. 
 
 <p align="center">
-  <img src="./images/secondimprovedModel/descarga.png" alt="Figure 5. Model accuracy and Loss. First evaluation" width="400"/>
-  <img src="./images/secondimprovedModel/descarga (1).png" width="400"/>
+  <img src="./images/secondimprovedModel/all.png" alt="Figure 5. Model accuracy and Loss. First evaluation" width="400"/>
 </p>
 <p align="center">
   <em>Figure 5. Model accuracy and Loss. First evaluation</em>
 </p>
 
 This data allows us to conclude that, even though the model is able to
-classify car parts with a good degree of accuracy, it is not generalizing well to
-unseen data, as the validation accuracy is significantly lower than the training
-accuracy. This indicates that the model is overfitting to the training data, meaning
-that it is learning the noise and details of the training data rather than the
-underlying patterns that are common to all car parts.
+classify car parts with a good degree of accuracy, the loss values indicate 
+that the model is not converging and the validation accuracy is significantly
+lower than the training accuracy, which indicates that the model is overfitting 
+to the training data.
 
 ### Model refinement
 

@@ -5,12 +5,12 @@
 
 ## Abstract
 This project presents a detailed evaluation of a deep learning model for the
-classification of car parts into 40 distict classes using a Convolutional Neural
+classification of car parts into 40 distinct classes using a Convolutional Neural
 Network (CNN) based on the ResNet50 architecture. The model employs transfer
 learning by leveraging pretrained weights from ResNet50[[3](https://doi.org/10.3390/bioengineering9030097)]
 , which enhances its performance in distinguishing between multiple classes of car parts.
 
-The model is constructed with several layers, enabling multiclass classification
+The model is constructed with several layers, enabling multiclass classification.
  Training is conducted using categorical crossentropy
 as the loss function and the Adam optimizer, with early stopping and model
 checkpointing implemented to prevent overfitting and ensure optimal performance.
@@ -108,7 +108,7 @@ The validation and test sets are also already separated as follows:
   <em>Figure 2. Dataset Distribution (Validation) &nbsp;&nbsp;&nbsp; Figure 3. Dataset Distribution (Test)</em>
 </p>
 
-However since the validation and Test data are not as sustantial as the training 
+However since the validation and Test data are not as substantial as the training 
 data, Data Augmentation was applied to both validation and Test sets to increase 
 the number of instances and improve the model's generalization capabilities. 
 The augmentation techniques are:
@@ -122,8 +122,8 @@ The augmentation techniques are:
 
 
 Also as part of the preprocessing the `process_input` function from keras was
-used, this is due to the normalization process requiered by ResNet50 which
-requieres the images to be preprocessed in a specific way. This process consists
+used, this is due to the normalization process required by ResNet50 which
+requires
 basically in inverting the RGB channels to BGR, and then subtracting the mean
 pixel value from each channel[ [6](https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet/preprocess_input) ][[7](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)].
 
@@ -258,7 +258,7 @@ from relying too heavily on any specific feature.
 
 ### Retraining and final evaluation
 
-After the refinment of the model, the model was retrained using the same
+After the refinement of the model, the model was retrained using the same
 training set and the same parameters. The model achieved the next metrics:
 
 ```

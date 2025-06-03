@@ -55,7 +55,7 @@ generalization capabilities[[3](https://doi.org/10.3390/bioengineering9030097)].
 
 ## Material and Methods
 ### Dataset 
-The dataset used in this study was sourced from Kaggle, the car-parts dataset[[8](https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes)].
+The dataset used in this project was sourced from Kaggle, the car-parts dataset[[8](https://www.kaggle.com/datasets/gpiosenka/car-parts-40-classes)].
 This dataset is structured in folders representing different classes, facilitating its 
 use in machine learning models.
 
